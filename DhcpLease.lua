@@ -16,7 +16,7 @@ function DhcpLease.new(filename)
     for k, v in pairs(DhcpLeaseData) do
         local line = DhcpLeaseData[k]
         local temp = {}
-        temp["unknown"] = "host description"
+        temp[fn[5]] = "host description" -- set default, in case it's missing
         local i = 1
         for w in line:gmatch("%S+") do
             local fieldname = fn[i]

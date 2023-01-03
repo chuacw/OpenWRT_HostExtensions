@@ -1,4 +1,3 @@
-local ObjUtils = {}
 local dump
 dump = function (o)
     if type(o) == 'table' then
@@ -15,8 +14,23 @@ dump = function (o)
     end
 end
 
+local ObjUtils = {}
+
 function ObjUtils.dump(o)
     local result = dump(o)
+    return result
+end
+
+--[[
+    Returns the number of keys in a dictionary by counting it
+]]
+function ObjUtils.length(o)
+    local result = 0
+    if type(o) == 'table' then
+        for k, v in pairs(o) do
+            result = result + 1
+        end
+    end
     return result
 end
 
